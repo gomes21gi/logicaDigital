@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica Digital para Todos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ddd;
+      padding: 10px;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    .logic-box {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e8f5e9;
+      border-left: 5px solid #4CAF50;
+    }
+    .game input {
+      margin: 5px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lógica Digital para Todas as Idades</h1>
+  </header>
+
+  <nav>
+    <a href="#intro">O que é?</a>
+    <a href="#variaveis">Variáveis</a>
+    <a href="#portas">Portas Lógicas</a>
+    <a href="#exemplos">Exemplos</a>
+    <a href="#jogo">Brinque!</a>
+  </nav>
+
+  <section id="intro">
+    <h2>O que é Lógica Digital?</h2>
+    <p>Lógica digital é como os computadores pensam, usando apenas dois números: 1 (sim) e 0 (não). Isso permite que eles tomem decisões simples, mas poderosas!</p>
+  </section>
+
+  <section id="variaveis">
+    <h2>Variáveis Lógicas</h2>
+    <p>São como caixas que guardam respostas:</p>
+    <div class="logic-box">
+      <p>✅ Verdadeiro = 1</p>
+      <p>❌ Falso = 0</p>
+    </div>
+  </section>
+
+  <section id="portas">
+    <h2>Portas Lógicas Básicas</h2>
+    <div class="logic-box">
+      <p><strong>AND (E):</strong> Só dá verdadeiro se tudo for verdadeiro.<br>Ex: Tenho guarda-chuva E está chovendo → Saio seco.</p>
+    </div>
+    <div class="logic-box">
+      <p><strong>OR (OU):</strong> Dá verdadeiro se uma das condições for verdadeira.<br>Ex: Está calor OU estou com sede → Tomar água.</p>
+    </div>
+    <div class="logic-box">
+      <p><strong>NOT (NÃO):</strong> Inverte a resposta.<br>Ex: NÃO está chovendo → Posso ir ao parque.</p>
+    </div>
+  </section>
+
+  <section id="exemplos">
+    <h2>Exemplos no Dia a Dia</h2>
+    <ul>
+      <li>🤳 Flash do celular: Está escuro E a câmera está aberta → liga o flash.</li>
+      <li>😊 Selfie com sorriso: Rosto detectado E sorriso → tira a foto.</li>
+      <li>📱 Abrir câmera com movimento: Se balançar o celular → abre a câmera.</li>
+    </ul>
+  </section>
+
+  <section id="jogo">
+    <h2>Brinque com a Lógica!</h2>
+    <div class="game">
+      <p>Botão 1: <input type="checkbox" id="btn1"></p>
+      <p>Botão 2: <input type="checkbox" id="btn2"></p>
+      <button onclick="verificarAND()">Verificar AND</button>
+      <p class="result" id="resAND"></p>
+    </div>
+  </section>
+
+  <script>
+    function verificarAND() {
+      const b1 = document.getElementById('btn1').checked;
+      const b2 = document.getElementById('btn2').checked;
+      const resultado = (b1 && b2) ? '✅ LED aceso (1)' : '❌ LED apagado (0)';
+      document.getElementById('resAND').textContent = resultado;
+    }
+  </script>
+</body>
+</html>
