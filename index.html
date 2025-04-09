@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fundamentos da Lógica Digital</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
   <header>
     <h1>Fundamentos da Lógica Digital</h1>
+    <nav class="menu">
+      <button onclick="mostrarCategoria('logica')">O que é Lógica?</button>
+      <button onclick="mostrarCategoria('variaveis')">Variáveis Lógicas</button>
+      <button onclick="mostrarCategoria('portas')">Portas Lógicas</button>
+      <button onclick="mostrarCategoria('aplicacoes')">Aplicações</button>
+    </nav>
   </header>
 
   <main>
-    <section>
+    <section id="logica" class="categoria ativa fade">
       <h2>1 - O que é lógica?</h2>
       <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso. Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
-      <p>Veja na prática como isso funciona com um exemplo interativo:</p>
-      <div class="lampada-link-container">
-        <button class="lampada-botao animado" onclick="document.getElementById('lampadaSection').scrollIntoView({ behavior: 'smooth' });">
-          💡 Ver simulação com lâmpada
-        </button>
+      <p>Veja isso de forma divertida:</p>
+      <div class="lampada-container">
+        <div class="lampada-wrapper">
+          <div id="lampada" class="lampada off"></div>
+          <div class="base"></div>
+        </div>
+        <button class="lampada-botao animado" onclick="alternarLampada()">Ligar / Desligar Lâmpada</button>
+        <p><em>Simulação lógica: valor 1 = lâmpada acesa, valor 0 = apagada.</em></p>
       </div>
     </section>
 
-    <section>
+    <section id="variaveis" class="categoria fade">
       <h2>2 - O que são variáveis lógicas?</h2>
       <p>São símbolos como A, B, X que representam valores binários (0 ou 1). Exemplo:</p>
       <ul>
@@ -32,7 +41,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="portas" class="categoria fade">
       <h2>3 - Como funcionam as portas lógicas básicas?</h2>
       <p>As portas lógicas realizam operações com variáveis lógicas. Veja a tabela:</p>
       <table>
@@ -67,7 +76,7 @@
       </table>
     </section>
 
-    <section>
+    <section id="aplicacoes" class="categoria fade">
       <h2>4 - Como aplicar isso no dia a dia?</h2>
       <ul>
         <li><strong>Interruptores de luz (AND):</strong> A luz só acende se os dois botões estiverem pressionados.</li>
@@ -75,25 +84,82 @@
         <li><strong>Tranca inteligente (AND):</strong> A porta só abre se a senha e a digital forem válidas.</li>
       </ul>
     </section>
-
-    <section id="lampadaSection">
-      <h2>💡 Exemplo prático: Lógica com lâmpada</h2>
-      <div class="lampada-container">
-        <div class="lampada-wrapper">
-          <div id="lampada" class="lampada off"></div>
-          <div class="base"></div>
-        </div>
-        <button class="lampada-botao animado" onclick="alternarLampada()">Ligar / Desligar Lâmpada</button>
-        <p><em>Simulação lógica: valor 1 = lâmpada acesa, valor 0 = apagada.</em></p>
-      </div>
-    </section>
   </main>
 
   <script>
-    function alternarLampada() {
-      const lampada = document.getElementById('lampada');
-      lampada.classList.toggle('off');
+    function mostrarCategoria(id) {
+      const seções = document.querySelectorAll(".categoria");
+      seções.forEach(sec => {
+        if (sec.id === id) {
+          sec.classList.add("ativa");
+        } else {
+          sec.classList.remove("ativa");
+        }
+      });
     }
+
+    function alternarLampada() {
+    const lampada = document.getElementById('lampada');
+    lampada.classList.toggle('off');
+  }
+
+  function mostrarCategoria(id) {
+  const seções = document.querySelectorAll(".categoria");
+  const novaSecao = document.getElementById(id);
+  let secaoAtual = null;
+
+  // Descobre qual seção está visível no momento
+  seções.forEach(sec => {
+    if (sec.classList.contains("ativa")) {
+      secaoAtual = sec;
+    }
+  });
+
+  if (secaoAtual === novaSecao) return; // Se clicar na mesma, não faz nada
+
+  if (secaoAtual) {
+    // Aplica fade-out
+    secaoAtual.classList.remove("fade-in");
+    secaoAtual.classList.add("fade-out");
+
+    // Espera o fade-out acabar, esconde, mostra nova
+    setTimeout(() => {
+      secaoAtual.classList.remove("ativa", "fade-out");
+      secaoAtual.style.display = "none";
+
+      // Mostra a nova com fade-in
+      novaSecao.style.display = "block";
+      novaSecao.classList.add("ativa", "fade-in");
+
+      // Anima elementos internos
+      animarAoRolar();
+    }, 500);
+  } else {
+    // Primeira vez carregando
+    novaSecao.style.display = "block";
+    novaSecao.classList.add("ativa", "fade-in");
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+  // ANIMAÇÃO AO ROLAR PARA CONTEÚDO INTERNO
+  function animarAoRolar() {
+    const elementos = document.querySelectorAll('[data-anime]');
+    const windowTop = window.pageYOffset + window.innerHeight * 0.85;
+
+    elementos.forEach(el => {
+      if (windowTop > el.offsetTop) {
+        el.classList.add('animado');
+      } else {
+        el.classList.remove('animado');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animarAoRolar);
+  document.addEventListener('DOMContentLoaded', animarAoRolar);
   </script>
 </body>
 </html>
