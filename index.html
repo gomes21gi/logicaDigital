@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos da Lógica Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Fundamentos da Lógica Digital</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1 - O que é lógica?</h2>
+      <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso. Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
+      <p>Veja na prática como isso funciona com um exemplo interativo:</p>
+      <div class="lampada-link-container">
+        <button class="lampada-botao animado" onclick="document.getElementById('lampadaSection').scrollIntoView({ behavior: 'smooth' });">
+          💡 Ver simulação com lâmpada
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2>2 - O que são variáveis lógicas?</h2>
+      <p>São símbolos como A, B, X que representam valores binários (0 ou 1). Exemplo:</p>
+      <ul>
+        <li>A = 1 (verdadeiro)</li>
+        <li>B = 0 (falso)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3 - Como funcionam as portas lógicas básicas?</h2>
+      <p>As portas lógicas realizam operações com variáveis lógicas. Veja a tabela:</p>
+      <table>
+        <tr>
+          <th>Porta</th>
+          <th>Símbolo</th>
+          <th>Operação</th>
+          <th>Exemplo (A=1, B=0)</th>
+          <th>Saída</th>
+        </tr>
+        <tr>
+          <td>AND (E)</td>
+          <td>.</td>
+          <td>Só dá 1 se todos forem 1</td>
+          <td>1 AND 0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>OR (OU)</td>
+          <td>+</td>
+          <td>Dá 1 se pelo menos um for 1</td>
+          <td>1 OR 0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>NOT (NÃO)</td>
+          <td>¬</td>
+          <td>Inverte o valor</td>
+          <td>NOT 1</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>4 - Como aplicar isso no dia a dia?</h2>
+      <ul>
+        <li><strong>Interruptores de luz (AND):</strong> A luz só acende se os dois botões estiverem pressionados.</li>
+        <li><strong>Alarme de porta (OR):</strong> O alarme toca se a porta ou a janela estiverem abertas.</li>
+        <li><strong>Tranca inteligente (AND):</strong> A porta só abre se a senha e a digital forem válidas.</li>
+      </ul>
+    </section>
+
+    <section id="lampadaSection">
+      <h2>💡 Exemplo prático: Lógica com lâmpada</h2>
+      <div class="lampada-container">
+        <div id="lampada" class="lampada off">
+          <div class="filamento"></div>
+          <div class="brilho"></div>
+        </div>
+        <button class="lampada-botao animado" onclick="alternarLampada()">Ligar / Desligar Lâmpada</button>
+        <p><em>Simulação lógica: valor 1 = lâmpada acesa, valor 0 = apagada.</em></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function alternarLampada() {
+      const lampada = document.getElementById('lampada');
+      lampada.classList.toggle('off');
+    }
+  </script>
+</body>
+</html>
