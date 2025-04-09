@@ -57,48 +57,33 @@ th {
   margin-top: 30px;
 }
 
-.lampada {
-  width: 120px;
-  height: 160px;
-  margin: 0 auto 20px;
-  background: radial-gradient(circle at center, #ffeb3b 20%, #ccc 90%);
-  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-  box-shadow: 0 0 25px rgba(255, 235, 59, 0.8);
+.lampada-wrapper {
+  display: inline-block;
   position: relative;
-  transition: all 0.4s ease;
-  animation: pulse 2s infinite ease-in-out;
+}
+
+.lampada {
+  width: 100px;
+  height: 140px;
+  background: radial-gradient(circle at center, #fff176 10%, #fdd835 60%, #fbc02d 100%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: 0 0 40px rgba(255, 235, 59, 0.6);
+  transition: all 0.3s ease;
+  animation: glow 2s infinite ease-in-out;
 }
 
 .lampada.off {
-  background: radial-gradient(circle, #666 20%, #999 90%);
+  background: radial-gradient(circle at center, #888 10%, #555 90%);
   box-shadow: none;
   animation: none;
 }
 
-.filamento {
-  width: 6px;
-  height: 40px;
-  background-color: #333;
-  margin: 20px auto;
-  border-radius: 3px;
-}
-
-.brilho {
+.base {
   width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 0, 0.4);
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  filter: blur(10px);
-  opacity: 1;
-  transition: opacity 0.4s;
-}
-
-.lampada.off .brilho {
-  opacity: 0;
+  height: 30px;
+  background: #444;
+  margin: -10px auto 0;
+  border-radius: 10px;
 }
 
 .lampada-botao {
@@ -110,6 +95,7 @@ th {
   cursor: pointer;
   font-size: 16px;
   transition: background 0.3s;
+  margin-top: 10px;
 }
 
 .lampada-botao:hover {
@@ -130,8 +116,8 @@ th {
   100% { transform: translateY(-5px); }
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 15px rgba(255, 235, 59, 0.4); }
-  50% { box-shadow: 0 0 30px rgba(255, 235, 59, 0.8); }
-  100% { box-shadow: 0 0 15px rgba(255, 235, 59, 0.4); }
-}
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(255, 235, 59, 1); }
+  100% { box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); }
+} 
