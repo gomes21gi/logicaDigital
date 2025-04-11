@@ -69,4 +69,29 @@ function avaliarRobo() {
   }
 }
 
+function verificarAcesso() {
+  const senha = document.getElementById('senha').checked;
+  const digital = document.getElementById('digital').checked;
+  const imagem = document.getElementById('portaImagem');
+  const mensagem = document.getElementById('mensagemAcesso');
+
+  // Começa com fade-out
+  imagem.style.opacity = 0;
+
+  // Aguarda 300ms para mudar a imagem e aplicar o fade-in
+  setTimeout(() => {
+    if (senha && digital) {
+      imagem.src = "./images/porta_aberta.png";
+      mensagem.textContent = "✅ Acesso concedido! Porta aberta.";
+      mensagem.style.color = "green";
+    } else {
+      imagem.src = "./images/porta_fechada.png";
+      mensagem.textContent = "❌ Acesso negado. Ambas as condições precisam estar ativadas.";
+      mensagem.style.color = "red";
+    }
+
+    imagem.style.opacity = 1;
+  }, 300);
+}
+
 
