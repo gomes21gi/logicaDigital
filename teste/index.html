@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" type="text/css" content="Giovana Gomes">
+
+    <meta name="rating" content="General" /> <!--Contra indicação de idade-->
+    <meta name="revisit-after" content="60 days" /><!--Dias que deve refazer cache-->
+    <meta name="reply-to" content="felipedegenerportella@yahoo.com"><!--Para qual email são enviadas notificações-->
+    <meta name="robots" content="index, follow"><!--Robots-->
+    <meta name="GOOGLEBOT" content="follow, index" /><!--Google Boot-->
+    <meta name="Publisher-Email" content="felipedegenerportella@yahoo.com" />
+    <meta name="distribution" content="Regional" /><!--Informa se a distribuição é global ou regional-->
+    <meta name="doc-class" content="Completed" /><!--Informa a classe do documento-->
+    <meta name="doc-rights" content="Public" /> <!--Informa se as informações são publicas, privadas ou internas-->
+    <meta name="copyright" content="Giovana Gomes" /><!--Quem produziu o site-->
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="theme-color" content="#FFF200">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFF200">
+    <meta name="apple-mobile-web-app-title" content="template">
+    <meta name="application-name" content="template">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!--OG-->
+    <meta property="og:title" content="template">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tempsite.com.br/">
+    <meta property="og:image" content="https://tempsite.com.br/img/og.png">
+    <meta property="og:imagem:secure_url" content="https://tempsite.com.br/img/og.png">
+    <meta property="og:image:type" content="imagem/png">
+    <meta property="og:site_name" content="template">
+
+    <!-- fonts -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<!-- <span class="view"></span> -->
+<body>
+    <!-- header -->
+    <header>
+        <h1>Fundamentos da Lógica Digital</h1>
+        <nav class="menu">
+          <button onclick="mostrarCategoria('logica')">O que é Lógica?</button>
+          <button onclick="mostrarCategoria('variaveis')">Variáveis Lógicas</button>
+          <button onclick="mostrarCategoria('portas')">Portas Lógicas</button>
+          <button onclick="mostrarCategoria('aplicacoes')">Aplicações</button>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main class="main" aria-label="main">
+        <div class="main-grid container">
+            <h2>Bem-vindo à Lógica Digital!</h2>
+            <p>Clique em um dos tópicos acima para começar a sua jornada no mundo da lógica digital.</p>
+        </div>
+
+        <!-- logica -->
+        <section class="categoria fade" id="logica" aria-label="lógica">
+            <div class="logica-grid container">
+            <h2>1 - O que é lógica?</h2>
+            <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso.</p>
+            <p>Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
+            <h3>Conheça o Robô Preguiçoso</h3>
+            <p><strong>Ele só vai pegar seu brinquedo (verdadeiro/1) SE você pedir COM CARINHO (1) OU oferecer um biscoito (1).</strong></p>
+            <p>Se você não fizer nenhum dos dois (0 OU 0), ele fica parado (0).</p>
+            
+            <div class="robo-container">
+                <div class="emoji-feedback" id="emoji"></div>
+                <div class="animacao-robo">
+                <img src="./images/robo.png" alt="Robô Preguiçoso" class="robo-img" id="robo" />
+                <img src="./images/brinquedo.png" alt="Brinquedo" class="brinquedo-img" id="brinquedo">
+                </div>
+                <div class="controle">
+                <label><input type="checkbox" id="carinho"> Com carinho</label>
+                <label><input type="checkbox" id="biscoito"> Biscoito</label>
+                <button onclick="avaliarRobo()">Pedir ao robô</button>
+                <p id="resposta-robo">🤖 Está esperando...</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- variaveis -->
+        <section class="categoria fade" id="variaveis" aria-label="variáveis">
+            <div class="variaveis-grid container">
+            <h2>2 - O que são variáveis lógicas?</h2>
+            <p>São símbolos como A, B, X que representam valores binários (0 ou 1). Exemplo:</p>
+            <ul>
+                <li>A = 1 (verdadeiro)</li>
+                <li>B = 0 (falso)</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- portas -->
+        <section class="categoria fade" id="portas" aria-label="portas">
+            <div class="portas-grid container">
+            <h2>3 - Como funcionam as portas lógicas básicas?</h2>
+            <table>
+                <tr>
+                <th>Porta</th>
+                <th>Símbolo</th>
+                <th>Operação</th>
+                <th>Exemplo (A=1, B=0)</th>
+                <th>Saída</th>
+                </tr>
+                <tr>
+                <td>AND (E)</td>
+                <td>.</td>
+                <td>Só dá 1 se todos forem 1</td>
+                <td>1 AND 0</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                <td>OR (OU)</td>
+                <td>+</td>
+                <td>Dá 1 se pelo menos um for 1</td>
+                <td>1 OR 0</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <td>NOT (NÃO)</td>
+                <td>¬</td>
+                <td>Inverte o valor</td>
+                <td>NOT 1</td>
+                <td>0</td>
+                </tr>
+            </table>
+            </div>
+        </section>
+
+        <!-- aplicações -->
+        <section id="aplicacoes" class="categoria fade">
+            <div class="aplicacoes-grid container">
+            <h2>4 - Como aplicar isso no dia a dia?</h2>
+            <ul>
+                <li><strong>Interruptores de luz (AND):</strong> A luz só acende se os dois botões estiverem pressionados.</li>
+                <li><strong>Alarme de porta (OR):</strong> O alarme toca se a porta ou a janela estiverem abertas.</li>
+                <li><strong>Tranca inteligente (AND):</strong> A porta só abre se a senha e a digital forem válidas.</li>
+            </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/view.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

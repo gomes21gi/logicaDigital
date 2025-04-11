@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fundamentos da Lógica Digital</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Fundamentos da Lógica Digital</h1>
+    <nav class="menu">
+      <button onclick="mostrarCategoria('logica')">O que é Lógica?</button>
+      <button onclick="mostrarCategoria('variaveis')">Variáveis Lógicas</button>
+      <button onclick="mostrarCategoria('portas')">Portas Lógicas</button>
+      <button onclick="mostrarCategoria('aplicacoes')">Aplicações</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="categoria ativa fade">
+      <h2>Bem-vindo à Lógica Digital!</h2>
+      <p>Clique em um dos tópicos acima para começar a sua jornada no mundo da lógica digital.</p>
+    </section>
+
+    <section id="logica" class="categoria fade">
+      <h2>1 - O que é lógica?</h2>
+      <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso.</p>
+      <p>Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
+      <h3>Conheça o Robô Preguiçoso</h3>
+      <p><strong>Ele só vai pegar seu brinquedo (verdadeiro/1) SE você pedir COM CARINHO (1) OU oferecer um biscoito (1).</strong></p>
+      <p>Se você não fizer nenhum dos dois (0 OU 0), ele fica parado (0).</p>
+    
+      <div class="robo-container">
+        <div class="emoji-feedback" id="emoji"></div>
+        <div class="animacao-robo">
+          <img src="./images/robo.png" alt="Robô Preguiçoso" class="robo-img" id="robo" />
+          <img src="./images/brinquedo.png" alt="Brinquedo" class="brinquedo-img" id="brinquedo">
+        </div>
+        <div class="controle">
+          <label><input type="checkbox" id="carinho"> Com carinho</label>
+          <label><input type="checkbox" id="biscoito"> Biscoito</label>
+          <button onclick="avaliarRobo()">Pedir ao robô</button>
+          <p id="resposta-robo">🤖 Está esperando...</p>
+        </div>
+      </div>
+      
+    </section>
+
+    <section id="variaveis" class="categoria fade">
+      <h2>2 - O que são variáveis lógicas?</h2>
+      <p>São símbolos como A, B, X que representam valores binários (0 ou 1). Exemplo:</p>
+      <ul>
+        <li>A = 1 (verdadeiro)</li>
+        <li>B = 0 (falso)</li>
+      </ul>
+    </section>
+
+    <section id="portas" class="categoria fade">
+      <h2>3 - Como funcionam as portas lógicas básicas?</h2>
+      <table>
+        <tr>
+          <th>Porta</th>
+          <th>Símbolo</th>
+          <th>Operação</th>
+          <th>Exemplo (A=1, B=0)</th>
+          <th>Saída</th>
+        </tr>
+        <tr>
+          <td>AND (E)</td>
+          <td>.</td>
+          <td>Só dá 1 se todos forem 1</td>
+          <td>1 AND 0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>OR (OU)</td>
+          <td>+</td>
+          <td>Dá 1 se pelo menos um for 1</td>
+          <td>1 OR 0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>NOT (NÃO)</td>
+          <td>¬</td>
+          <td>Inverte o valor</td>
+          <td>NOT 1</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="aplicacoes" class="categoria fade">
+      <h2>4 - Como aplicar isso no dia a dia?</h2>
+      <ul>
+        <li><strong>Interruptores de luz (AND):</strong> A luz só acende se os dois botões estiverem pressionados.</li>
+        <li><strong>Alarme de porta (OR):</strong> O alarme toca se a porta ou a janela estiverem abertas.</li>
+        <li><strong>Tranca inteligente (AND):</strong> A porta só abre se a senha e a digital forem válidas.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
