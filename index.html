@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fundamentos da Lógica Digital</title>
-  <link rel="stylesheet" href="./style.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
@@ -18,18 +18,33 @@
   </header>
 
   <main>
-    <section id="logica" class="categoria ativa fade">
+    <section id="inicio" class="categoria ativa fade">
+      <h2>Bem-vindo à Lógica Digital!</h2>
+      <p>Clique em um dos tópicos acima para começar a sua jornada no mundo da lógica digital.</p>
+    </section>
+
+    <section id="logica" class="categoria fade">
       <h2>1 - O que é lógica?</h2>
-      <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso. Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
-      <p>Veja isso de forma divertida:</p>
-      <div class="lampada-container">
-        <div class="lampada-wrapper">
-          <div id="lampada" class="lampada off"></div>
-          <div class="base"></div>
+      <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso.</p>
+      <p>Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
+      <h3>Conheça o Robô Preguiçoso</h3>
+      <p><strong>Ele só vai pegar seu brinquedo (verdadeiro/1) SE você pedir COM CARINHO (1) OU oferecer um biscoito (1).</strong></p>
+      <p>Se você não fizer nenhum dos dois (0 OU 0), ele fica parado (0).</p>
+    
+      <div class="robo-container">
+        <div class="emoji-feedback" id="emoji"></div>
+        <div class="animacao-robo">
+          <img src="Captura de tela 2025-04-11 123210.png" alt="Robô Preguiçoso" class="robo-img" id="robo" />
+          <img src="Captura de tela 2025-04-11 132233.png" alt="Brinquedo" class="brinquedo-img" id="brinquedo">
         </div>
-        <button class="lampada-botao animado" onclick="alternarLampada()">Ligar / Desligar Lâmpada</button>
-        <p><em>Simulação lógica: valor 1 = lâmpada acesa, valor 0 = apagada.</em></p>
+        <div class="controle">
+          <label><input type="checkbox" id="carinho"> Com carinho</label>
+          <label><input type="checkbox" id="biscoito"> Biscoito</label>
+          <button onclick="avaliarRobo()">Pedir ao robô</button>
+          <p id="resposta-robo">🤖 Está esperando...</p>
+        </div>
       </div>
+      
     </section>
 
     <section id="variaveis" class="categoria fade">
@@ -43,7 +58,6 @@
 
     <section id="portas" class="categoria fade">
       <h2>3 - Como funcionam as portas lógicas básicas?</h2>
-      <p>As portas lógicas realizam operações com variáveis lógicas. Veja a tabela:</p>
       <table>
         <tr>
           <th>Porta</th>
@@ -86,80 +100,6 @@
     </section>
   </main>
 
-  <script>
-    function mostrarCategoria(id) {
-      const seções = document.querySelectorAll(".categoria");
-      seções.forEach(sec => {
-        if (sec.id === id) {
-          sec.classList.add("ativa");
-        } else {
-          sec.classList.remove("ativa");
-        }
-      });
-    }
-
-    function alternarLampada() {
-    const lampada = document.getElementById('lampada');
-    lampada.classList.toggle('off');
-  }
-
-  function mostrarCategoria(id) {
-  const seções = document.querySelectorAll(".categoria");
-  const novaSecao = document.getElementById(id);
-  let secaoAtual = null;
-
-  // Descobre qual seção está visível no momento
-  seções.forEach(sec => {
-    if (sec.classList.contains("ativa")) {
-      secaoAtual = sec;
-    }
-  });
-
-  if (secaoAtual === novaSecao) return; // Se clicar na mesma, não faz nada
-
-  if (secaoAtual) {
-    // Aplica fade-out
-    secaoAtual.classList.remove("fade-in");
-    secaoAtual.classList.add("fade-out");
-
-    // Espera o fade-out acabar, esconde, mostra nova
-    setTimeout(() => {
-      secaoAtual.classList.remove("ativa", "fade-out");
-      secaoAtual.style.display = "none";
-
-      // Mostra a nova com fade-in
-      novaSecao.style.display = "block";
-      novaSecao.classList.add("ativa", "fade-in");
-
-      // Anima elementos internos
-      animarAoRolar();
-    }, 500);
-  } else {
-    // Primeira vez carregando
-    novaSecao.style.display = "block";
-    novaSecao.classList.add("ativa", "fade-in");
-  }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-
-  // ANIMAÇÃO AO ROLAR PARA CONTEÚDO INTERNO
-  function animarAoRolar() {
-    const elementos = document.querySelectorAll('[data-anime]');
-    const windowTop = window.pageYOffset + window.innerHeight * 0.85;
-
-    elementos.forEach(el => {
-      if (windowTop > el.offsetTop) {
-        el.classList.add('animado');
-      } else {
-        el.classList.remove('animado');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', animarAoRolar);
-  document.addEventListener('DOMContentLoaded', animarAoRolar);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
