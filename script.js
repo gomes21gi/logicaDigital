@@ -69,4 +69,55 @@ function avaliarRobo() {
   }
 }
 
+// --porta em variaveis --
+function verificarAcesso() {
+  const senha = document.getElementById('senha').checked;
+  const digital = document.getElementById('digital').checked;
+  const imagem = document.getElementById('portaImagem');
+  const mensagem = document.getElementById('mensagemAcesso');
 
+  // Começa com fade-out
+  imagem.style.opacity = 0;
+
+  // Aguarda 300ms para mudar a imagem e aplicar o fade-in
+  setTimeout(() => {
+    if (senha && digital) {
+      imagem.src = "./images/porta_aberta.png";
+      mensagem.textContent = "✅ Acesso concedido! Porta aberta.";
+      mensagem.style.color = "green";
+    } else {
+      imagem.src = "./images/porta_fechada.png";
+      mensagem.textContent = "❌ Acesso negado. Ambas as condições precisam estar ativadas.";
+      mensagem.style.color = "red";
+    }
+
+    imagem.style.opacity = 1;
+  }, 300);
+}
+
+// portas mágicas
+// const somClick = new Audio("som/click.mp3");
+// const somSucesso = new Audio("som/sucesso.mp3");
+// const somErro = new Audio("som/erro.mp3");
+
+function calcular(tipo) {
+  let a = parseInt(document.getElementById("inputA").value);
+  let b = parseInt(document.getElementById("inputB").value);
+  let resultado = document.getElementById("resultado");
+  let emoji = document.getElementById("emoji");
+  let saida;
+
+  if (tipo === "AND") {
+    saida = a && b;
+    resultado.innerText = `🔒 Cofre Lógico: ${a} AND ${b} = ${saida}\n${saida === 1 ? "Cofre aberto! 🎉" : "Cofre trancado! ❌"}`;
+    emoji.textContent = saida === 1 ? "🎉" : "🔒";
+  } else if (tipo === "OR") {
+    saida = a || b;
+    resultado.innerText = `💡 Luz da Festa: ${a} OR ${b} = ${saida}\n${saida === 1 ? "Luz acesa! 🥳" : "Tudo escuro... 😴"}`;
+    emoji.textContent = saida === 1 ? "🥳" : "😴";
+  } else if (tipo === "NOT") {
+    saida = a === 1 ? 0 : 1;
+    resultado.innerText = `🪞 Espelho Mágico: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
+    emoji.textContent = "🔄";
+  }
+}

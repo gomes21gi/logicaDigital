@@ -52,47 +52,59 @@
     </section>
 
     <section id="variaveis" class="categoria fade">
-      <h2>2 - O que são variáveis lógicas?</h2>
-      <p>São símbolos como A, B, X que representam valores binários (0 ou 1). Exemplo:</p>
-      <ul>
-        <li>A = 1 (verdadeiro)</li>
-        <li>B = 0 (falso)</li>
-      </ul>
+      <h2>Variáveis Lógicas</h2>
+  <p>
+    As variáveis lógicas assumem apenas dois valores: verdadeiro (1) ou falso (0). Elas são a base da Lógica Digital e são utilizadas em expressões para determinar o comportamento de circuitos e sistemas.
+  </p>
+
+  <div class="porta-logica-container">
+    <h3>Porta Digital</h3>
+    <p>Marque as condições abaixo para tentar abrir a porta:</p>
+    
+    <label><input type="checkbox" id="senha"> Senha correta</label>
+    <label><input type="checkbox" id="digital"> Digital válida</label>
+    
+    <br />
+    <button onclick="verificarAcesso()">Tentar abrir</button>
+    <br />
+    <img id="portaImagem" src="images/porta_fechada.png" alt="Porta Fechada" class="porta-imagem" />
+    <p id="mensagemAcesso"></p>
+  </div>
     </section>
 
     <section id="portas" class="categoria fade">
-      <h2>3 - Como funcionam as portas lógicas básicas?</h2>
-      <table>
-        <tr>
-          <th>Porta</th>
-          <th>Símbolo</th>
-          <th>Operação</th>
-          <th>Exemplo (A=1, B=0)</th>
-          <th>Saída</th>
-        </tr>
-        <tr>
-          <td>AND (E)</td>
-          <td>.</td>
-          <td>Só dá 1 se todos forem 1</td>
-          <td>1 AND 0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>OR (OU)</td>
-          <td>+</td>
-          <td>Dá 1 se pelo menos um for 1</td>
-          <td>1 OR 0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>NOT (NÃO)</td>
-          <td>¬</td>
-          <td>Inverte o valor</td>
-          <td>NOT 1</td>
-          <td>0</td>
-        </tr>
-      </table>
+      <h2 class="titulo-portas">Portas Lógicas Divertidas</h2>
+      <p class="intro">Aprenda como funciona a lógica com jogos e interações!</p>
+    
+      <div class="inputs">
+        <label for="inputA">A:
+          <select id="inputA">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </label>
+    
+        <label for="inputB">B:
+          <select id="inputB">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </label>
+      </div>
+    
+      <div class="buttons-portas">
+        <button onclick="calcular('AND')">Cofre Lógico (AND)</button>
+        <button onclick="calcular('OR')">Luz da Festa (OR)</button>
+        <button onclick="calcular('NOT')">Espelho Mágico (NOT A)</button>
+      </div>
+    
+      <div id="emoji" class="emoji">🤔</div>
+      <div id="resultado" class="resultado">Escolha uma operação!</div>
+    
+      <footer class="footer-portas">
+      </footer>
     </section>
+    
 
     <section id="aplicacoes" class="categoria fade">
       <h2>4 - Como aplicar isso no dia a dia?</h2>
