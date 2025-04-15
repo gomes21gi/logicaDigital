@@ -109,15 +109,15 @@ function calcular(tipo) {
 
   if (tipo === "AND") {
     saida = a && b;
-    resultado.innerText = `🔒 Cofre Lógico: ${a} AND ${b} = ${saida}\n${saida === 1 ? "Cofre aberto! 🎉" : "Cofre trancado! ❌"}`;
-    emoji.textContent = saida === 1 ? "🎉" : "🔒";
+    resultado.innerText = `Cofre Lógico: ${a} AND ${b} = ${saida}\n${saida === 1 ? "Cofre aberto! " : "Cofre trancado! "}`;
+    emoji.textContent = saida === 1;
   } else if (tipo === "OR") {
     saida = a || b;
-    resultado.innerText = `💡 Luz da Festa: ${a} OR ${b} = ${saida}\n${saida === 1 ? "Luz acesa! 🥳" : "Tudo escuro... 😴"}`;
-    emoji.textContent = saida === 1 ? "🥳" : "😴";
+    resultado.innerText = `Luz da Festa: ${a} OR ${b} = ${saida}\n${saida === 1 ? "Luz acesa! " : "Tudo escuro... "}`;
+    emoji.textContent = saida === 1;
   } else if (tipo === "NOT") {
     saida = a === 1 ? 0 : 1;
-    resultado.innerText = `🪞 Espelho Mágico: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
+    resultado.innerText = `Espelho Mágico: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
     emoji.textContent = "🔄";
   }
 }
