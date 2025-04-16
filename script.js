@@ -113,11 +113,77 @@ function calcular(tipo) {
     emoji.textContent = saida === 1;
   } else if (tipo === "OR") {
     saida = a || b;
-    resultado.innerText = `Luz da Festa: ${a} OR ${b} = ${saida}\n${saida === 1 ? "Luz acesa! " : "Tudo escuro... "}`;
+    resultado.innerText = `Lanterna: ${a} OR ${b} = ${saida}\n${saida === 1 ? "Luz acesa! " : "Tudo escuro... "}`;
     emoji.textContent = saida === 1;
   } else if (tipo === "NOT") {
     saida = a === 1 ? 0 : 1;
-    resultado.innerText = `Espelho Mágico: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
+    resultado.innerText = `Reverse Card: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
     emoji.textContent = "🔄";
   }
+
 }
+
+let trilho = document.getElementById("trilho");
+//let btn = document.getElementById("btn");
+let body = document.querySelector("body");
+
+trilho.addEventListener("click", () => {  
+trilho.classList.toggle("dark");
+body.classList.toggle("dark");
+});
+
+// Função para o dinossauro pular
+const dino = document.querySelector('.dinossauro');
+const botaoA = document.getElementById('botaoA');
+const botaoB = document.getElementById('botaoB');
+
+// Função para o dinossauro correr
+botaoA.addEventListener('click', () => {
+  dino.classList.add('correndo');
+  setTimeout(() => {
+    dino.classList.remove('correndo');
+  }, 2000); // Tempo da animação de corrida
+});
+
+// Função para o dinossauro pular
+botaoB.addEventListener('click', () => {
+  if (!dino.classList.contains('pulando')) {
+    dino.classList.add('pulando');
+    setTimeout(() => {
+      dino.classList.remove('pulando');
+    }, 500); // Tempo do pulo
+  }
+});
+
+function autenticar() {
+  // Coletando os dados inseridos pelo usuário
+  const username = document.getElementById('auth-username').value;
+  const password = document.getElementById('auth-password').value;
+  const digital = document.getElementById('auth-digital').value;
+
+  // Validando os dados (simulação simples)
+  if (username === 'admin' && password === 'senha123' && digital === '123456') {
+    document.getElementById('auth-message').textContent = 'Acesso concedido! Conteúdo liberado.';
+    document.getElementById('auth-message').style.color = 'green';
+  } else {
+    document.getElementById('auth-message').textContent = 'Acesso negado! Dados incorretos.';
+    document.getElementById('auth-message').style.color = 'red';
+  }
+}
+
+function atualizarLampada() {
+  const i1 = document.getElementById("interrup1").checked;
+  const i2 = document.getElementById("interrup2").checked;
+  const lampada = document.getElementById("lampada");
+
+  if (i1 && i2) {
+    lampada.src = "images/lampadaAcessa.png";
+    lampada.classList.add("acesa");
+  } else {
+    lampada.src = "images/lampadaApagada.png";
+    lampada.classList.remove("acesa");
+  }
+}
+
+
+

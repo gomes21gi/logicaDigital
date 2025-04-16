@@ -77,8 +77,8 @@
 
     <!-- Secao portas -->
     <section id="portas" class="categoria fade">
-      <h2 class="titulo-portas">Portas Lógicas Divertidas</h2>
-      <p class="intro">Aprenda como funciona a lógica com jogos e interações!</p>
+      <h2 class="titulo-portas">Portas Lógicas</h2>
+      <p class="intro">Aprenda como funciona a lógica com alguns jogos!</p>
     
       <div class="inputs">
         <label for="inputA">A:
@@ -98,8 +98,8 @@
     
       <div class="buttons-portas">
         <button onclick="calcular('AND')">Cofre Lógico (AND)</button>
-        <button onclick="calcular('OR')">Luz da Festa (OR)</button>
-        <button onclick="calcular('NOT')">Espelho Mágico (NOT)</button>
+        <button onclick="calcular('OR')">Lanterna (OR)</button>
+        <button onclick="calcular('NOT')">Reverse Card (NOT)</button>
       </div>
     
       <div id="emoji" class="emoji">🤔</div>
@@ -109,13 +109,68 @@
       </footer>
     </section>
     
-
     <section id="aplicacoes" class="categoria fade">
-      <h2>4 - Como aplicar isso no dia a dia?</h2>
+      <h2>4 - Como isso é aplicado no dia a dia?</h2>
       <ul>
-        <li><strong>Interruptores de luz (AND):</strong> A luz só acende se os dois botões estiverem pressionados.</li>
-        <li><strong>Alarme de porta (OR):</strong> O alarme toca se a porta ou a janela estiverem abertas.</li>
-        <li><strong>Tranca inteligente (AND):</strong> A porta só abre se a senha e a digital forem válidas.</li>
+        <li>
+          <h3>Interruptores(OR)</h3>
+          <div class="aplicacao-box">
+            <p>Os interruptores da sua casa, por exemplo, não são nada mais do que operações lógicas de 'OR'. 
+              Você pode perceber isso quando clica nesse interruptor aqui: 
+              ele só ficará ligado em dois momentos, e é você quem determina isso.
+            </p>
+            <p class="descricao-aplicacao">Essa lógica é comum em casas que possuem interruptor(pelo amor de Deus) para o mesmo ponto de luz.</p>
+            <div class="trilho" id="trilho">
+              <div class="indicador"></div>
+            </div>
+          </div>
+        </li>
+        
+        <li>
+          <h3>Controle de Videogame (OR)</h3>
+          <div class="aplicacao-box">
+            <p>Em jogos, essa lógica também se aplica. No jogo abaixo, o personagem pode pular ou ir para a frente, 
+              dependendo de qual ação for pressionada. 
+              Isso também responde à operação lógica OR.
+            </p>
+            <p>O personagem reage se o botão <strong>A</strong> ou <strong>B</strong> forem pressionados.</p>
+            <div class="console-container">
+              <div class="tela">
+                <img src="images/dinossauro.png" alt="Dinossauro" class="dinossauro" id="dinossauro">
+              </div>
+              <div class="controle">
+                <button class="botao" id="botaoA">A</button>
+                <button class="botao" id="botaoB">B</button>
+              </div>
+            </div>
+          </div>
+        </li>
+    
+        <li>
+          <h3>Lampada (AND)</h3>
+          <div class="aplicacao-box">
+            <p>E por último, temos outra lâmpada, mas ela é um pouco diferente da primeira. 
+              Ela só pode ser ligada se ambas as opções estiverem ativas. 
+              Isso é aplicado em lógicas como a tranca de portas, onde, para abri-la, 
+              você precisaria de uma senha e uma digital válida, por exemplo.
+            </p>
+            <div class="circuito alinhado">
+              <div class="interruptores-container-horizontal">
+                <label class="interruptor-horizontal">
+                  <input type="checkbox" id="interrup1" onchange="atualizarLampada()">
+                  <span class="label-text">Botão 1</span>
+                </label>
+                <label class="interruptor-horizontal">
+                  <input type="checkbox" id="interrup2" onchange="atualizarLampada()">
+                  <span class="label-text">Botão 2</span>
+                </label>
+              </div>
+              <div class="lampada-container-horizontal">
+                <img id="lampada" src="images/lampadaApagada.png" alt="Lâmpada" />
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </section>
   </main>
