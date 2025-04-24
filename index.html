@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fundamentos da Lógica Digital</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,62 +22,76 @@
   </header>
 
   <main>
-    <!--inicio-->
+    <!-- Seção Início -->
     <section id="inicio" class="categoria ativa fade">
       <h2>Bem-vindo à Lógica Digital!</h2>
       <p>Clique em um dos tópicos acima para começar a sua jornada no mundo da lógica digital.</p>
     </section>
 
-    <!--Secao logica-->
+    <!-- Seção Lógica -->
     <section id="logica" class="categoria fade">
-      <h2>1 - O que é lógica?</h2>
-      <p>Lógica é o estudo do raciocínio e das regras que determinam se algo é verdadeiro ou falso.</p>
-      <p>Na lógica digital, usamos valores binários (0 e 1) para representar essas verdades.</p>
-      <h3>Conheça o Robô Preguiçoso</h3>
-      <p><strong>Ele só vai pegar seu brinquedo (verdadeiro/1) SE você pedir COM CARINHO (1) OU oferecer um biscoito (1).</strong></p>
-      <p>Se você não fizer nenhum dos dois (0 OU 0), ele fica parado (0).</p>
-    
-      <div class="robo-container">
-        <div class="emoji-feedback" id="emoji"></div>
-        <div class="animacao-robo">
-          <img src="./images/robo.png" alt="Robô Preguiçoso" class="robo-img" id="robo" />
-          <img src="./images/brinquedo.png" alt="Brinquedo" class="brinquedo-img" id="brinquedo">
+      <h2>O que é lógica?</h2>
+      <div class="conteudo-logica">
+        <div class="texto-logica">
+          <p><strong>Lógica</strong> é o jeito formal de pensar com clareza. Ela nos ajuda a tirar conclusões certas, usando regras fixas. No mundo digital, ela vira <strong>0 e 1</strong>, desligado ou ligado, falso ou verdadeiro.</p>
+          <ul>
+            <li><strong>Usa regras</strong> para saber se algo é verdadeiro ou falso.</li>
+            <li>É a <strong>base de todos os circuitos digitais</strong>.</li>
+            <li>Exemplo: o robô só age se receber <strong>carinho OU biscoito</strong>.</li>
+          </ul>
+
+          <h3>Experimente com o Robô Preguiçoso</h3>
+          <p>Este robô só obedece a comandos lógicos simples:</p>
+          <p class="dica-logica">🔍 <strong>Dica:</strong> Ele só vai buscar o brinquedo se receber <u>carinho</u> <strong>OU</strong> <u>biscoito</u> (pelo menos um dos dois). Caso contrário, continua dormindo!</p>
         </div>
-        <div class="controle">
-          <label><input type="checkbox" id="carinho"> Com carinho</label>
-          <label><input type="checkbox" id="biscoito"> Biscoito</label>
-          <button onclick="avaliarRobo()">Pedir ao robô</button>
-          <p id="resposta-robo">🤖 Está esperando...</p>
+        
+        <div class="robo-logica">
+          <div class="emoji-feedback" id="emoji"></div>
+          <div class="animacao-robo">
+            <img src="./images/robo.png" alt="Robô Preguiçoso" class="robo-img" id="robo">
+            <img src="./images/brinquedo.png" alt="Brinquedo" class="brinquedo-img" id="brinquedo">
+          </div>
+          <div class="controle">
+            <label><input type="checkbox" id="carinho"> Com carinho</label>
+            <label><input type="checkbox" id="biscoito"> Biscoito</label>
+            <button onclick="avaliarRobo()">Pedir ao robô</button>
+            <p id="resposta-robo">🤖 Está esperando...</p>
+          </div>
         </div>
       </div>
-      
     </section>
 
-    <!--Secao Variaveis-->
+    <!-- Seção Variáveis -->
     <section id="variaveis" class="categoria fade">
       <h2>Variáveis Lógicas</h2>
-  <p>
-    As variáveis lógicas assumem apenas dois valores: verdadeiro (1) ou falso (0). Elas são a base da Lógica Digital e são utilizadas em expressões para determinar o comportamento de circuitos e sistemas.
-  </p>
 
-  <div class="porta-logica-container">
-    <h3>Porta Digital</h3>
-    <p>Marque as condições abaixo para tentar abrir a porta:</p>
-    
-    <label><input type="checkbox" id="senha"> Senha correta</label>
-    <label><input type="checkbox" id="digital"> Digital válida</label>
-    
-    <br />
-    <button onclick="verificarAcesso()">Tentar abrir</button>
-    <br />
-    <img id="portaImagem" src="images/porta_fechada.png" alt="Porta Fechada" class="porta-imagem" />
-    <p id="mensagemAcesso"></p>
-  </div>
+      <div class="conteudo-logica">
+        <div class="texto-logica">
+          <p><strong>Variáveis lógicas</strong> são símbolos simples que representam informações verdadeiras ou falsas. Só têm dois estados possíveis: <strong>0 (falso)</strong> ou <strong>1 (verdadeiro)</strong>. Elas controlam o que acontece em um sistema lógico.</p>
+          <ul>
+            <li>Sempre <strong>binárias</strong>: 0 ou 1.</li>
+            <li>Usadas para <strong>condições e decisões</strong>.</li>
+            <li>Exemplo: a porta só abre se <strong>senha E digital</strong> estiverem corretas.</li>
+          </ul>
+        </div>
+
+        <div class="porta-logica-container">
+          <h3>Porta Digital</h3>
+          <p>Marque as condições abaixo para tentar abrir a porta:</p>
+          
+          <label><input type="checkbox" id="senha"> Senha correta</label>
+          <label><input type="checkbox" id="digital"> Digital válida</label>
+          
+          <button onclick="verificarAcesso()">Tentar abrir</button>
+          <img id="portaImagem" src="images/porta_fechada.png" alt="Porta Fechada" class="porta-imagem">
+          <p id="mensagemAcesso"></p>
+        </div>
+      </div>
     </section>
 
-    <!-- Secao portas -->
+    <!-- Seção Portas -->
     <section id="portas" class="categoria fade">
-      <h2 class="titulo-portas">Portas Lógicas</h2>
+      <h2>Portas Lógicas</h2>
       <p class="intro">Aprenda como funciona a lógica com alguns jogos!</p>
     
       <div class="inputs">
@@ -104,69 +118,60 @@
     
       <div id="emoji" class="emoji">🤔</div>
       <div id="resultado" class="resultado">Escolha uma operação!</div>
-    
-      <footer class="footer-portas">
-      </footer>
     </section>
     
+    <!-- Seção Aplicações -->
     <section id="aplicacoes" class="categoria fade">
-      <h2>4 - Como isso é aplicado no dia a dia?</h2>
-      <ul>
-        <li>
-          <h3>Interruptores(OR)</h3>
+      <h2>Como isso é aplicado no dia a dia?</h2>
+      <div class="conteudo-logica">
+        <div class="texto-logica">
+          <p>A lógica digital aparece em objetos do cotidiano. Sempre que algo funciona com base em condições (como "se isso, então aquilo"), há lógica digital envolvida.</p>
+        </div>
+      </div>
+      <ul class="aplicacoes-lista">
+        <li class="aplicacao-item">
+          <h3>Interruptores (OR)</h3>
           <div class="aplicacao-box">
-            <p>Os interruptores da sua casa, por exemplo, não são nada mais do que operações lógicas de 'OR'. 
-              Você pode perceber isso quando clica nesse interruptor aqui: 
-              ele só ficará ligado em dois momentos, e é você quem determina isso.
-            </p>
-            <p class="descricao-aplicacao">Essa lógica é comum em casas que possuem interruptor(pelo amor de Deus) para o mesmo ponto de luz.</p>
+            <p>Os interruptores da sua casa são exemplos de operações lógicas OR.</p>
             <div class="trilho" id="trilho">
               <div class="indicador"></div>
             </div>
           </div>
         </li>
-        
-        <li>
+
+        <li class="aplicacao-item">
           <h3>Controle de Videogame (OR)</h3>
           <div class="aplicacao-box">
-            <p>Em jogos, essa lógica também se aplica. No jogo abaixo, o personagem pode pular ou ir para a frente, 
-              dependendo de qual ação for pressionada. 
-              Isso também responde à operação lógica OR.
-            </p>
-            <p>O personagem reage se o botão <strong>A</strong> ou <strong>B</strong> forem pressionados.</p>
+            <p>Em jogos, o personagem pode pular ou correr com diferentes botões.</p>
             <div class="console-container">
               <div class="tela">
                 <img src="images/dinossauro.png" alt="Dinossauro" class="dinossauro" id="dinossauro">
               </div>
-              <div class="controle">
+              <div class="controles">
                 <button class="botao" id="botaoA">A</button>
                 <button class="botao" id="botaoB">B</button>
               </div>
             </div>
           </div>
         </li>
-    
-        <li>
-          <h3>Lampada (AND)</h3>
+
+        <li class="aplicacao-item">
+          <h3>Lâmpada (AND)</h3>
           <div class="aplicacao-box">
-            <p>E por último, temos outra lâmpada, mas ela é um pouco diferente da primeira. 
-              Ela só pode ser ligada se ambas as opções estiverem ativas. 
-              Isso é aplicado em lógicas como a tranca de portas, onde, para abri-la, 
-              você precisaria de uma senha e uma digital válida, por exemplo.
-            </p>
-            <div class="circuito alinhado">
-              <div class="interruptores-container-horizontal">
-                <label class="interruptor-horizontal">
+            <p>Lâmpadas que exigem dois interruptores ativos simultaneamente.</p>
+            <div class="circuito-alinhado">
+              <div class="interruptores-container">
+                <label class="interruptor">
                   <input type="checkbox" id="interrup1" onchange="atualizarLampada()">
-                  <span class="label-text">Botão 1</span>
+                  <span>Botão 1</span>
                 </label>
-                <label class="interruptor-horizontal">
+                <label class="interruptor">
                   <input type="checkbox" id="interrup2" onchange="atualizarLampada()">
-                  <span class="label-text">Botão 2</span>
+                  <span>Botão 2</span>
                 </label>
               </div>
-              <div class="lampada-container-horizontal">
-                <img id="lampada" src="images/lampadaApagada.png" alt="Lâmpada" />
+              <div class="lampada-container">
+                <img id="lampada" src="images/lampadaApagada.png" alt="Lâmpada">
               </div>
             </div>
           </div>
