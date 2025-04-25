@@ -244,27 +244,30 @@ function setupDarkTheme() {
 /**
  * Configura as animações do dinossauro
  */
-function setupDinossauro() {
-  const dino = document.querySelector('.dinossauro');
-  const botaoA = document.getElementById('botaoA');
-  const botaoB = document.getElementById('botaoB');
+const dino = document.querySelector('.dinossauro');
+const botaoA = document.getElementById('botaoA');
+const botaoB = document.getElementById('botaoB');
 
-  if (!dino || !botaoA || !botaoB) return;
-
-  botaoA.addEventListener('click', () => {
-    if (dino.classList.contains('correndo')) return;
-    
+// Função para o dinossauro correr
+botaoA.addEventListener('click', () => {
+  if (!dino.classList.contains('correndo')) {
     dino.classList.add('correndo');
-    setTimeout(() => dino.classList.remove('correndo'), 2000);
-  });
+    setTimeout(() => {
+      dino.classList.remove('correndo');
+    }, 2000); // Tempo da animação de corrida
+  }
+});
 
-  botaoB.addEventListener('click', () => {
-    if (dino.classList.contains('pulando')) return;
-    
+// Função para o dinossauro pular
+botaoB.addEventListener('click', () => {
+  if (!dino.classList.contains('pulando')) {
     dino.classList.add('pulando');
-    setTimeout(() => dino.classList.remove('pulando'), 500);
-  });
-}
+    setTimeout(() => {
+      dino.classList.remove('pulando');
+    }, 600); // Tempo do pulo
+  }
+});
+
 
 // =============================================
 // ============ LÂMPADA LÓGICA =================
@@ -273,25 +276,19 @@ function setupDinossauro() {
 /**
  * Configura a lâmpada lógica (AND)
  */
-function setupLampada() {
-  const interrup1 = document.getElementById('interrup1');
-  const interrup2 = document.getElementById('interrup2');
-  const lampada = document.getElementById('lampada');
+function atualizarLampada() {
+  const i1 = document.getElementById("interrup1").checked;
+  const i2 = document.getElementById("interrup2").checked;
+  const lampada = document.getElementById("lampada");
 
-  if (!interrup1 || !interrup2 || !lampada) return;
+  if (i1 && i2) {
+    lampada.src = "images/lampadaAcessa.png";
+    lampada.classList.add("acesa");
+  } else {
+    lampada.src = "images/lampadaApagada.png";
+    lampada.classList.remove("acesa");
+  }
 
-  const atualizarLampada = () => {
-    const i1 = interrup1.checked;
-    const i2 = interrup2.checked;
-
-    if (i1 && i2) {
-      lampada.src = 'images/lampadaAcessa.png';
-      lampada.classList.add('acesa');
-    } else {
-      lampada.src = 'images/lampadaApagada.png';
-      lampada.classList.remove('acesa');
-    }
-  };
 
   interrup1.addEventListener('change', atualizarLampada);
   interrup2.addEventListener('change', atualizarLampada);

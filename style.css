@@ -75,7 +75,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/bg-header.jpg') no-repeat center center/cover;
+  background: url('./images/bg-header.jpg') no-repeat center center/cover;
   filter: blur(4px) brightness(0.6);
   z-index: -1;
 }
@@ -578,6 +578,50 @@ select {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-15px) scale(1.2); }
 }
+
+.dinossauro {
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.3s ease;
+  z-index: 2;
+}
+
+/* Pulo com movimento de subida e descida */
+.dinossauro.pulando {
+  animation: pular 0.6s linear;
+}
+
+@keyframes pular {
+  0%   { bottom: 0; }
+  20%  { bottom: 80px; }
+  40%  { bottom: 40px; }
+  60%  { bottom: 20px; }
+  100% { bottom: 0; }
+}
+
+/* Corrida para a direita, saindo da tela */
+.dinossauro.correndo {
+  animation: correrParaDireita 2s linear forwards;
+}
+
+@keyframes correrParaDireita {
+  0%   { left: 50%; transform: translateX(-50%); }
+  100% { left: 130%; transform: translateX(0); }
+}
+
+/* Voltar do canto direito para o centro */
+.dinossauro.voltando {
+  animation: voltarParaCentro 2s ease forwards;
+}
+
+@keyframes voltarParaCentro {
+  0%   { left: -30%; transform: translateX(0); }
+  100% { left: 50%; transform: translateX(-50%); }
+}
+
 
 /* ========================== */
 /*      DARK THEME            */
