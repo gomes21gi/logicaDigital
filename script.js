@@ -66,7 +66,7 @@ function mostrarCategoria(id) {
   if (secaoAtual) {
     secaoAtual.classList.remove('fade-in');
     secaoAtual.classList.add('fade-out');
-    setTimeout(finalizarTransicao, 500);
+    setTimeout(finalizarTransicao, 200);
   } else {
     finalizarTransicao();
   }
@@ -244,29 +244,30 @@ function setupDarkTheme() {
 /**
  * Configura as animações do dinossauro
  */
-const dino = document.querySelector('.dinossauro');
-const botaoA = document.getElementById('botaoA');
-const botaoB = document.getElementById('botaoB');
+function setupDinossauro() {
+  const dino = document.querySelector('.dinossauro');
+  const botaoA = document.getElementById('botaoA');
+  const botaoB = document.getElementById('botaoB');
 
-// Função para o dinossauro correr
-botaoA.addEventListener('click', () => {
-  if (!dino.classList.contains('correndo')) {
-    dino.classList.add('correndo');
-    setTimeout(() => {
-      dino.classList.remove('correndo');
-    }, 2000); // Tempo da animação de corrida
-  }
-});
+  botaoA.addEventListener('click', () => {
+    if (!dino.classList.contains('correndo')) {
+      dino.classList.add('correndo');
+      setTimeout(() => {
+        dino.classList.remove('correndo');
+      }, 2000);
+    }
+  });
 
-// Função para o dinossauro pular
-botaoB.addEventListener('click', () => {
-  if (!dino.classList.contains('pulando')) {
-    dino.classList.add('pulando');
-    setTimeout(() => {
-      dino.classList.remove('pulando');
-    }, 600); // Tempo do pulo
-  }
-});
+  botaoB.addEventListener('click', () => {
+    if (!dino.classList.contains('pulando')) {
+      dino.classList.add('pulando');
+      setTimeout(() => {
+        dino.classList.remove('pulando');
+      }, 300);
+    }
+  });
+}
+
 
 
 // =============================================
@@ -276,23 +277,28 @@ botaoB.addEventListener('click', () => {
 /**
  * Configura a lâmpada lógica (AND)
  */
-function atualizarLampada() {
-  const i1 = document.getElementById("interrup1").checked;
-  const i2 = document.getElementById("interrup2").checked;
+function setupLampada() {
+  const interrup1 = document.getElementById("interrup1");
+  const interrup2 = document.getElementById("interrup2");
   const lampada = document.getElementById("lampada");
 
-  if (i1 && i2) {
-    lampada.src = "images/lampadaAcessa.png";
-    lampada.classList.add("acesa");
-  } else {
-    lampada.src = "images/lampadaApagada.png";
-    lampada.classList.remove("acesa");
-  }
+  function atualizarLampada() {
+    const i1 = interrup1.checked;
+    const i2 = interrup2.checked;
 
+    if (i1 && i2) {
+      lampada.src = "images/lampadaAcessa.png";
+      lampada.classList.add("acesa");
+    } else {
+      lampada.src = "images/lampadaApagada.png";
+      lampada.classList.remove("acesa");
+    }
+  }
 
   interrup1.addEventListener('change', atualizarLampada);
   interrup2.addEventListener('change', atualizarLampada);
 }
+
 
 // =============================================
 // ============ INICIALIZAÇÃO ==================
