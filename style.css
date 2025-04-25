@@ -731,7 +731,6 @@ body.dark .trilho {
     justify-content: center;
   }
 }
-
 @media (max-width: 550px) {
   .menu {
     font-size: 14px;

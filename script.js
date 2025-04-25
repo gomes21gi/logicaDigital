@@ -196,12 +196,13 @@ function setupPortasMagicas() {
         emoji.textContent = saida === 1 ? '💡' : '🌑';
         break;
       case 'NOT':
-        saida = a === 1 ? 0 : 1;
-        mensagem = `Reverse Card: NOT ${a} = ${saida}\nInverteu tudo! 🔄`;
+        const saidaA = a === 1 ? 0 : 1;
+        const saidaB = b === 1 ? 0 : 1;
+        mensagem = `Reverse Card:\nA: ${a} = ${saidaA}\nB: ${b} = ${saidaB}\nInverteu tudo! 🔄`;
         emoji.textContent = '🔄';
-        break;
+        break;        
       default:
-        return;
+      return;
     }
 
     resultado.textContent = mensagem;
@@ -303,7 +304,6 @@ function setupLampada() {
 // =============================================
 // ============ INICIALIZAÇÃO ==================
 // =============================================
-
 /**
  * Inicializa todos os componentes quando o DOM estiver pronto
  */
